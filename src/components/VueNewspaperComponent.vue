@@ -369,7 +369,7 @@ export default class VueNewspaperComponent extends Vue {
 
   protected initialize(): void {
     this.cloudOne = gsap.timeline([
-      this.$refs['cloud-two'],
+    '#cloud-one',
       36,
       {
         x: '-720px',
@@ -377,7 +377,7 @@ export default class VueNewspaperComponent extends Vue {
       },
     ]);
     this.cloudTwo = gsap.timeline([
-      this.$refs['cloud-two'],
+      '#cloud-two',
       24,
       {
         x: '-720px',
@@ -385,15 +385,15 @@ export default class VueNewspaperComponent extends Vue {
       },
     ]);
     this.cloudThree = gsap.timeline([
-      this.$refs['cloud-three'],
+    '#cloud-three',
       33,
       {
         x: '-720px',
         ease: Linear.easeNone,
       },
-    ]);
+    ])
     this.cloudFour = gsap.timeline([
-      this.$refs['cloud-four'],
+       '#cloud-four',
       33,
       {
         x: '-720px',
@@ -401,7 +401,7 @@ export default class VueNewspaperComponent extends Vue {
       },
     ]);
     this.cloudFive = gsap.timeline([
-      this.$refs['cloud-five'],
+      '#cloud-five',
       24,
       {
         x: '-720px',
@@ -409,7 +409,7 @@ export default class VueNewspaperComponent extends Vue {
       },
     ]);
 
-    this.gsap.set(this.$refs['mail'], {
+    gsap.set('#mail', {
       scale: 0,
       x: 20,
       transformOrigin: 'right',
@@ -417,34 +417,28 @@ export default class VueNewspaperComponent extends Vue {
   }
 
   protected hoverBtn(): void {
-    gsap.to(this.$refs['btnSVG'], 0.3, {fill: '#fd1b66'});
+    gsap.to('#btnSVG',0.3, {fill: '#fd1b66'});
   }
 
   protected disableHoverBtn(): void {
-    gsap.to(this.$refs['btnSVG'], 0.3, {fill: '#ea5a87'});
+    gsap.to('#btnSVG', 0.3, {fill: '#ea5a87'});
   }
 
   protected submitAction(): void {
     let submit = gsap.timeline();
     submit.to(
-        [
-          this.$refs['title'],
-          this.$refs['disclaimer'],
-          this.$refs['btn'],
-          this.$refs['email'],
-          this.$refs['placeholder'],
-        ],
+        '#title, #disclaimer, #btn,#email, #placeholder',
         {
           opacity: 0,
           pointerEvents: 'none',
           ease: Power1.easeInOut,
         }
     );
-    submit.to([this.$refs['inputSVG'], this.$refs['btnSVG']], 0.5, {
+    submit.to('inputSVG, #btnSVG', 0.5, {
       morphSVG: {shape: 'invisible-heart'},
       ease: Power1.easeInOut,
     });
-    submit.to([this.$refs['inputSVG'], this.$refs['btnSVG']], 0.5, {
+    submit.to('#inputSVG, #btnSVG', 0.5, {
       y: -30,
       ease: Power1.easeInOut,
     });
@@ -496,13 +490,7 @@ export default class VueNewspaperComponent extends Vue {
     });
 
     wrapper.to(
-        [
-          this.$refs['title'],
-          this.$refs['disclaimer'],
-          this.$refs['btn'],
-          this.$refs['email'],
-          this.$refs['placeholder'],
-        ],
+        '#title, #disclaimer, #btn,#email, #placeholder',
         0,
         {
           opacity: 1,

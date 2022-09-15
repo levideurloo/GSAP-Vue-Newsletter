@@ -1,4 +1,4 @@
-# VuePieterPost
+# GSAP-Vue-Newsletter
 
 ## Project setup
 
